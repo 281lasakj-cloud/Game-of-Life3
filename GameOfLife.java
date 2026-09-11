@@ -22,22 +22,22 @@ public class GameOfLife {
             throw new IllegalArgumentException("Rows and columns must be positive.");
         }
 
-        
+        society = new boolean[rows][cols];
     }
 
     /** Returns the number of rows in the society. */
     public int numberOfRows() {
-        return -1;
+        return society.length;
     }
 
     /** Returns the number of columns in the society. */
     public int numberOfColumns() {
-        return -1;
+        return society[0].length;
     }
 
     /** Makes the location at row, col alive. */
     public void growCellAt(int row, int col) {
-        
+        society[row][col] = true;
     }
 
     /** Makes the location at row, col dead. */
@@ -47,12 +47,16 @@ public class GameOfLife {
 
     /** Returns true if the location contains a live cell. */
     public boolean cellAt(int row, int col) {
-        return false;
+        return society[row][col];
     }
 
     /** Makes every location in the society dead. */
     public void clear() {
-        
+        for (int i = 0; i < society.length; i++) {
+            for (int j = 0; j < society[0].length; j++) {
+                society[i][j] = false;
+            }
+        }
     }
 
     /**

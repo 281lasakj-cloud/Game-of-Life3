@@ -11,6 +11,7 @@
  */
 public class GameOfLife {
 
+    
     private boolean[][] society;
 
     /**

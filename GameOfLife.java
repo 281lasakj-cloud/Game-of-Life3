@@ -11,6 +11,7 @@
  */
 public class GameOfLife {
 
+    
     private boolean[][] society;
 
     /**
@@ -20,8 +21,7 @@ public class GameOfLife {
         if (rows <= 0 || cols <= 0) {
             throw new IllegalArgumentException("Rows and columns must be positive.");
         }
-
-        
+   
     }
 
     /** Returns the number of rows in the society. */

@@ -21,37 +21,41 @@ public class GameOfLife {
         if (rows <= 0 || cols <= 0) {
             throw new IllegalArgumentException("Rows and columns must be positive.");
         }
-   
+        society = new boolean[rows][cols];
     }
 
     /** Returns the number of rows in the society. */
     public int numberOfRows() {
-        return -1;
+        return society.length;
     }
 
     /** Returns the number of columns in the society. */
     public int numberOfColumns() {
-        return -1;
+        return society[0].length;
     }
 
     /** Makes the location at row, col alive. */
     public void growCellAt(int row, int col) {
-        
+        society[row][col] = true;
     }
 
     /** Makes the location at row, col dead. */
     public void killCellAt(int row, int col) {
-        
+        society[row][col] = false;
     }
 
     /** Returns true if the location contains a live cell. */
     public boolean cellAt(int row, int col) {
-        return false;
+        return society[row][col];
     }
 
     /** Makes every location in the society dead. */
     public void clear() {
-        
+        for (int r = 0; r < society.length; r++) {
+            for (int c = 0; c < society[0].length; c++) {
+                society[r][c] = false;
+            }
+        }
     }
 
     /**
@@ -66,6 +70,10 @@ public class GameOfLife {
         // TODO: Traverse the 3 x 3 neighborhood around row, col.
         //       Skip row, col itself.
         //       Check bounds before reading society[r][c].
+        int count = 0;
+        for(int r = row - 1; r <= row + 1; r++){
+            for(int c = col - 1; c <= col +1)
+        }
 
         return 0;
     }

@@ -130,7 +130,13 @@ public class GameOfLife {
     public String toString() {
         // TODO: Use nested loops to build one String containing the board.
         //       Add a newline after every row.
-
-        return "Complete toString() to display the text version of the board.\n";
+        String result = "";
+        for(int r = 0; r < society.length; r++) {
+            for (int c = 0; c < society[0].length; c++) {
+                result += society[r][c] ? "O" : ".";
+            }
+            result += "\n";
+        }
+        return result;
     }
 }

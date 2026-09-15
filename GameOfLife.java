@@ -72,10 +72,18 @@ public class GameOfLife {
         //       Check bounds before reading society[r][c].
         int count = 0;
         for(int r = row - 1; r <= row + 1; r++){
-            for(int c = col - 1; c <= col +1)
+            for(int c = col - 1; c <= col +1; c++){
+                if(r == row && c == col) {
+                    continue;
+                }
+                if(r >= 0 && r < society.length && c >= 0 && c < society[0].length){
+                    if(society[r][c]){
+                        count++;
+                    }
+            })
         }
 
-        return 0;
+        return count;
     }
 
     /**
@@ -95,7 +103,20 @@ public class GameOfLife {
         // IMPORTANT:
         // Do not change society while you are still using it to calculate
         // neighbors. Every cell in the new generation must be based on the
-        // same old generation.
+        // same old generation.\
+        boolean[][] nextGeneration = new boolean[society.length][society[0].length];
+
+        for(int r = 0; r < society.length; r++) {
+            for (int c = 0; c < society[0].length; c++) {
+                int neighbors = neighborCount(r, c);
+                if (society[r][c]) { 
+                    nextGeneration[r][c] = (neighbors == 2 || neighbors == 3);
+                } else {
+                    nextGeneration[r][c] = (neighbors == 3);
+                }
+            }
+        }
+        society = nextGeneration;
     }
 
     /**
